@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add Medication</title>
 </head>
 <body>
-
+    <h1>Add Medication</h1>
+  <!--server ma kei halnu xa bhne form banayera post garinca -->
+    <form method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="dosage">Dosage:</label>
+        <input type="text" id="dosage" name="dosage" required>
+        <br>
+        <label for="frequency">Frequency:</label>
+        <input type="text" id="frequency" name="frequency" required>
+        <br>
+        <label for="time">Time:</label>
+        <input type="text" id="time" name="time" required>
+        <br>
+        <button type="submit">Add</button>
+    </form>
+    <a href="/">Back to list</a>
 </body>
 </html>
