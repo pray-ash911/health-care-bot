@@ -1,3 +1,4 @@
+<!--This is the homepage of bot in web-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,14 @@
     <title>Title</title>
 </head>
 <body>
+<h1> Medication list</h1>
+<--ul is unoredered list where order doesnot matter-->
+<ul>
+    {%for med in medications %} <!--this is for each loop in html ani yo medications chai app.py bata ako xa ani name,frequency,dose chai database ko ho which in medications-->
+    <li> {{med.name}} - {{med.dose}} - {{med.frequency}} - {{med.time}}</li>
+    {%endfor %}
+</ul>
+    <a href="/add">Add Medication</a>
 
 </body>
 </html>
