@@ -73,8 +73,8 @@ rf_model.fit(symptoms,risk_levels)
 
 #step3 : making predictions
 #suppose a new user reports fever,cough,and fatigue but not remaining others
-new_symptom=[1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0]
-new_symptom1=[0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0]
+new_symptom=[1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+new_symptom1=[1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
 
 #step4: predicting the risk levels for new user with decision tree
 predicted_risk = model.predict([new_symptom])
@@ -94,13 +94,28 @@ print(f"Accuracy on training data of rf: {accuracy * 100}%")
 
 # Check accuracy on training data on tree
 accuracy = accuracy_score(risk_levels, train_predictions)
-#print(f"Accuracy on training data of tree: {accuracy * 100}%")
+print(f"Accuracy on training data of tree: {accuracy * 100}%")
 
 #giving output of predicted risk level with decision tree model
-#print("predicted risk level:",predicted_risk[0])
-#print("predicted risk level:",predicted_risk1[0])
+print("predicted risk level:",predicted_risk[0])
+print("predicted risk level:",predicted_risk1[0])
 
 #giving output of predicted risk level with random forest model
 
 print("predicted risk level:",predicted_risk_rf[0])
 print("predicted risk level:",predicted_risk1_rf[0])
+
+
+def predict_risk_level(symptom_array, model_type="decision_tree"):
+    """
+    Predict risk level based on symptoms.
+    :param symptom_array: List[int], binary representation of symptoms
+    :param model_type: str, type of model to use ("decision_tree" or "random_forest")
+    :return: str, predicted risk level
+    """
+    if model_type == "decision_tree":
+        return model.predict([symptom_array])[0]  # Decision Tree Prediction
+    elif model_type == "random_forest":
+        return rf_model.predict([symptom_array])[0]  # Random Forest Prediction
+    else:
+        raise ValueError("Invalid model type. Use 'decision_tree' or 'random_forest'.")

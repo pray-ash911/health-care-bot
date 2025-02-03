@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Medication</title>
+</head>
+<body>
+<form action="/edit/{{ post.id }}" method="POST">
+    <p>Form action URL: /edit/{{ post.id }}</p>
+
+    <label for="Username">User Name:</label>
+    <input type="text" name="Username" id="Username" value="{{ post.Username }}" >
+
+    <label for="name">Medicine Name:</label>
+    <input type="text" id="name" name="name" value="{{ post.name }}" >
+    <br>
+    <label for="dosage">Dosage:</label>
+    <input type="text" id="dose" name="dose" value="{{ post.dose}}" >
+    <br>
+    <label for="frequency">Frequency:</label>
+    <input type="text" id="frequency" name="frequency" value="{{ post.frequency }}" >
+    <br>
+    <label for="time">Time:</label>
+    <input type="time" id="time" name="time" value="{{ post.time }}">
+    <br>
+    <button type="submit">Update Medicine</button>
+</form>
+<a href="/">Back to homepage</a>
+
+
+</body>
+</html>
